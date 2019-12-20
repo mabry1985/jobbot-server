@@ -31,6 +31,14 @@ router.route("/backbone").get((req, res) => {
   .catch(err => res.status(400).json("Error " + err)); 
 });
 
+router.route("/rails").get((req, res) => {
+  Job.find({ description: /Rails/})
+  .then(jobs => res.json(jobs))
+  .catch(err => res.status(400).json("Error " + err)); 
+});
+
+
+
 router.route("/senior").get((req, res) => {
   Job.find({ isSenior: true})
   .then(jobs => res.json(jobs))
