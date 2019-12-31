@@ -28,7 +28,7 @@ router.route("/bar-graph").get(async (req, res) => {
     const results = await barGraph.barGraphData();
     const data = await Promise.all(results);
     res.json(data);
-  } catch (error) {
+  } catch (err) {
     res.status(400).json("Error: " + err);
   }
 });
